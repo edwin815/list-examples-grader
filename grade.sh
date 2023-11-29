@@ -24,13 +24,20 @@ do
 done
 
 
-rm -rf student-submission
+#rm -rf student-submission
 cp -r ./TestListExamples.java grading-area
 cp -r lib grading-area
 cd grading-area
 
 javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
+java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples > ~/Documents/Github/list-examples-grader/student-submission/failures.txt
+
+#if grep -q "failure" ~/Documents/Github/list-examples-grader/student-submission/failures.txt
+#      echo FAILED 
+#else 
+#      echo SUCCESS 
+#fi
+
 
 
 
